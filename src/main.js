@@ -10,6 +10,10 @@ Vue.config.productionTip = false
 
 Vue.use(VueAxios, axios)
 
+// axios.defaults.baseURL =
+// "https://firestore.googleapis.com/v1/projects/" +
+// process.env.VUE_APP_FIREBASE_DB + "/databases/(default)/documents"
+
 new Vue({
   vuetify,
   router,

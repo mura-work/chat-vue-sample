@@ -1,5 +1,6 @@
 <template>
   <div id="home">
+    <button @click="addComment">テスト</button>
     <v-simple-table class="post-list">
       <template v-slot:default>
         <thead>
@@ -22,11 +23,42 @@
 </template>
 
 <script>
+import axios from 'axios';
+
+const URL = "https://firestore.googleapis.com/v1/projects/" +
+    process.env.VUE_APP_FIREBASE_DB + "/databases/(default)/documents/comments"
+
 export default {
   name: 'home',
   data: () => ({
     posts: [],
-  })
+  }),
+  created: function () {
+    axios.get(URL
+    ).then(response => {
+      this.posts = response.data.documents
+    })
+  },
+  methods: {
+    addComment: function() {
+      // const postTime = new Date();
+      // axios.post(URL,
+      // {
+      //   fields: {
+      //     name: {
+      //       stringValue: "あああああ",
+      //     },
+      //     comment: {
+      //       stringValue: "いいいいい",
+      //     },
+      //     created: {
+      //       timestampValue: postTime,
+      //     }
+      //   }
+      // },
+    // )
+    }
+  }
 }
 </script>
 
