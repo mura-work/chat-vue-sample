@@ -12,9 +12,11 @@
     "autoprefixer": "^9.8.6",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "firebase": "^8.8.0",
     "postcss": "^7.0.36",
     "vue": "^2.6.11",
     "vue-axios": "^3.2.4",
+    "vuefire": "^3.0.0-alpha.2",
     "vuetify": "^2.4.0"
   },
   "devDependencies": {
