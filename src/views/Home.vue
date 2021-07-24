@@ -29,11 +29,8 @@ export default {
     //   this.posts = response.data.documents
     // })
     db.collection('comments')
-      .orderBy('created', 'desc')
       .onSnapshot(snapshot => {
         snapshot.forEach(doc => {
-        // 変更後のデータが取得できる
-        console.log(doc.data())
         this.posts.push(doc.data())
         })
     })

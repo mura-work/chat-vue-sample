@@ -12,22 +12,31 @@
           {{post.name}}
         </v-list-item-title>
         <v-list-item-subtitle>{{post.comment}}</v-list-item-subtitle>
+        <v-card-actions>
+          {{ post.created | moment }}
+        </v-card-actions>
       </v-list-item-content>
-      <v-card-actions>
-
-      </v-card-actions>
     </v-list-item>
   </v-card>
   </div>
 </template>
 
 <script>
+import moment from 'moment';
+
 export default {
   name: 'post-list',
   props: {
     posts: {
       type: Array,
       default: () => {},
+    },
+  },
+  filters: {
+    moment: function (date) {
+      let d = date.toDate()
+      moment(d).format("YYYY年MM月DD日")
+      // moment(post_date).format('YYYY/MM/DD HH:mm');
     }
   }
 }

@@ -9,10 +9,11 @@
 </template>
 
 <script>
-import axios from 'axios';
+import { db } from '../main'
+// import axios from 'axios';
 
-const URL = "https://firestore.googleapis.com/v1/projects/" +
-    process.env.VUE_APP_FIREBASE_DB + "/databases/(default)/documents/comments"
+// const URL = "https://firestore.googleapis.com/v1/projects/" +
+//     process.env.VUE_APP_FIREBASE_DB + "/databases/(default)/documents/comments"
 
 export default {
   name: 'post-form',
@@ -22,22 +23,15 @@ export default {
   }),
   methods: {
     addComment: function() {
-      const postTime = new Date();
-      axios.post(URL,
-      {
-        fields: {
-          name: {
-            stringValue: this.name,
-          },
-          comment: {
-            stringValue: this.comment,
-          },
-          created: {
-            timestampValue: postTime,
-          }
-        }
-      },
-    )
+      db.collection("comments").add({
+        name: this.name,
+        comment: this.comment,
+        created: new Date(),
+      }).then((res) => {
+          console.log(res.status);
+      })
+      this.name = '',
+      this.comment = ''
     }
   }
 }
