@@ -6,17 +6,9 @@
     outlined
     v-for="(post, index) in posts" :key="`first-${index}`"
   >
-    <v-list-item three-line>
-      <v-list-item-content>
-        <v-list-item-title class="text-h5 mb-1">
-          {{post.name}}
-        </v-list-item-title>
-        <v-list-item-subtitle>{{post.comment}}</v-list-item-subtitle>
-        <v-card-actions>
-          {{ post.created | moment }}
-        </v-card-actions>
-      </v-list-item-content>
-    </v-list-item>
+    <v-card-title>{{post.name}}</v-card-title>
+    <v-card-text>{{post.comment}}</v-card-text>
+    <v-card-actions class="flex justify-end">{{moment(post.created)}}</v-card-actions>
   </v-card>
   </div>
 </template>
@@ -32,11 +24,9 @@ export default {
       default: () => {},
     },
   },
-  filters: {
+  methods: {
     moment: function (date) {
-      let d = date.toDate()
-      moment(d).format("YYYY年MM月DD日")
-      // moment(post_date).format('YYYY/MM/DD HH:mm');
+      return moment(date.toDate()).format('YYYY/MM/DD HH:mm');
     }
   }
 }
