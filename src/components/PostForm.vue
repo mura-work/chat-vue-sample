@@ -1,18 +1,15 @@
 <template>
   <div class="post-form">
-    <v-form>
-      <v-text-field v-model="name" label="Name" required></v-text-field>
-      <v-text-field v-model="comment" label="Comment" required></v-text-field>
+    <v-form class="form-contents">
+      <v-text-field ref="name" v-model="name" label="Name" required></v-text-field>
+      <v-text-field ref="comment" v-model="comment" label="Comment" required></v-text-field>
       <v-btn depressed color="primary" elevation="3" @click="addComment">投稿</v-btn>
     </v-form>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
-
-const URL = "https://firestore.googleapis.com/v1/projects/" +
-    process.env.VUE_APP_FIREBASE_DB + "/databases/(default)/documents/comments"
+// import { db } from '../main'
 
 export default {
   name: 'post-form',
@@ -22,22 +19,10 @@ export default {
   }),
   methods: {
     addComment: function() {
-      const postTime = new Date();
-      axios.post(URL,
-      {
-        fields: {
-          name: {
-            stringValue: this.name,
-          },
-          comment: {
-            stringValue: this.comment,
-          },
-          created: {
-            timestampValue: postTime,
-          }
-        }
-      },
-    )
+      const array = {'name': this.$refs.name.value, 'comment': this.$refs.comment.value}
+      this.$emit('post-comments', array)
+      this.name = ''
+      this.comment = ''
     }
   }
 }
