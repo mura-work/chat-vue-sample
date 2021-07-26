@@ -1,5 +1,9 @@
 <template>
   <div id="home">
+    <header-text>
+      <h2>{{ headerText }}</h2>
+      <div>以下コンテンツ</div>
+    </header-text>
     <post-form @post-comments="addComments"></post-form>
     <post-list :posts="posts"></post-list>
   </div>
@@ -8,6 +12,7 @@
 <script>
 import PostForm from '../components/PostForm.vue'
 import PostList from '../components/PostList.vue'
+import headerText from '../components/HeaderText.vue'
 import { db } from '../main'
 
 export default {
@@ -15,9 +20,11 @@ export default {
   components: {
     PostList,
     PostForm,
+    headerText,
   },
   data: () => ({
     posts: [],
+    headerText: "Home",
   }),
   created: function () {
     this.getCommentAll()
