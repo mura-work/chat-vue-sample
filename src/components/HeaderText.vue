@@ -1,7 +1,9 @@
 <template>
   <div >
     <slot name="home"></slot>
-    <slot name="users"></slot>
+    <slot name="users">
+      {{headerText}}
+    </slot>
   </div>
 </template>
 
