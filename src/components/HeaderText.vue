@@ -1,6 +1,7 @@
 <template>
   <div >
-    <slot></slot>
+    <slot name="home"></slot>
+    <slot name="users"></slot>
   </div>
 </template>
 
