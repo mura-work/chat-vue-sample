@@ -1,6 +1,6 @@
 <template>
-  <header>
-    <ul>
+  <header class="w-3/5 flex justify-center mb-10">
+    <ul class="w-3/5 flex justify-between">
       <li>
         <router-link to="/">Home</router-link>
       </li>

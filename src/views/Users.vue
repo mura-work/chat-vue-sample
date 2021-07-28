@@ -6,6 +6,9 @@
         <div>ユーザ一覧</div>
       </template>
     </header-text>
+    <transition appear>
+      <div>トランジション表示</div>
+    </transition>
   </div>
 </template>
 
@@ -24,3 +27,17 @@ export default {
   }
 }
 </script>
+
+<style>
+.v-enter-active {
+  transition: opacity 3s;
+}
+
+.v-enter {
+  opacity: 0;
+}
+
+.v-enter-to {
+  opacity: 1;
+}
+</style>
