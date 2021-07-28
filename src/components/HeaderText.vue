@@ -1,6 +1,9 @@
 <template>
   <div >
-    <slot></slot>
+    <slot name="home"></slot>
+    <slot name="users">
+      {{headerText}}
+    </slot>
   </div>
 </template>
 
