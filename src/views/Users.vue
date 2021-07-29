@@ -6,9 +6,10 @@
         <div>ユーザ一覧</div>
       </template>
     </header-text>
-    <transition appear>
-      <div>トランジション表示</div>
+    <transition name="fade">
+      <p v-if="show">hello</p>
     </transition>
+    <button @click="show = !show">切り替え</button>
   </div>
 </template>
 
@@ -23,21 +24,40 @@ export default {
   data() {
     return {
       headerText: "users",
+      show: false,
     }
   }
 }
 </script>
 
-<style>
-.v-enter-active {
-  transition: opacity 3s;
-}
-
-.v-enter {
+<style scoped>
+/* 現れる最初の状態 */
+.fade-enter {
   opacity: 0;
 }
 
-.v-enter-to {
+/* 現れる時のトランジションの状態 */
+.fade-enter-active {
+  transition: opacity 2s;
+}
+
+/* 現れる時の最後の状態 */
+.fade-enter-to {
   opacity: 1;
+}
+
+/* 消える時の最初の状態 */
+.fade-leave {
+  opacity: 1;
+}
+
+/* 消える時のトランジションの状態 */
+.fade-leave-active {
+  transition: opacity 2s;
+}
+
+/* 消える時の最後の状態 */
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
