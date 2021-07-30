@@ -10,7 +10,7 @@
       <p v-if="show">hello</p>
     </transition>
     <button @click="show = !show">切り替え</button>
-    <transition name="slide">
+    <transition name="slide" type="animation">
       <p v-if="show">bye</p>
     </transition>
   </div>
@@ -66,10 +66,12 @@ export default {
 
 .slide-enter-active {
   animation: slide-in 0.5s;
+  transition: opacity 5s;
 }
 
 .slide-leave-active {
   animation: slide-in 0.5s reverse;
+  transition: opacity 5s;
 }
 
 @keyframes slide-in {
