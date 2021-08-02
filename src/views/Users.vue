@@ -6,11 +6,11 @@
         <div>ユーザ一覧</div>
       </template>
     </header-text>
-    <transition name="fade">
+    <transition name="fade" appear>
       <p v-if="show">hello</p>
     </transition>
     <button @click="show = !show">切り替え</button>
-    <transition name="slide" type="animation">
+    <transition enter-active-class="animate__animated animate__bounce" appear name="slide" type="animation">
       <p v-if="show">bye</p>
     </transition>
   </div>

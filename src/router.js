@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import Users from './views/Users.vue'
 import User from './views/User.vue'
 import Post from './views/Post.vue'
+import Flex from './views/Flex.vue'
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ export default new Router({
       path: '/post/:id',
       name: 'post',
       component: Post
+    },
+    {
+      path: '/flex',
+      name: 'flex',
+      component: Flex
     },
   ]
 })
