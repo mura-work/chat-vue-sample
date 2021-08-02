@@ -8,6 +8,9 @@
         <router-link to="/users">Users</router-link>
       </li>
       <li>
+        <router-link to="/flex">Flex</router-link>
+      </li>
+      <li>
         <span @click="logout">ログアウト</span>
       </li>
     </ul>

@@ -28,7 +28,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .post-form {
   @apply w-1/2;
   @apply mx-auto;

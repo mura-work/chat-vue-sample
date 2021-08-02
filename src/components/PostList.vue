@@ -32,7 +32,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .post-list {
   @apply w-9/12;
   @apply m-auto;
