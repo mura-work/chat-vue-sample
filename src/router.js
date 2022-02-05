@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import Users from './views/Users.vue'
 import User from './views/User.vue'
 import Post from './views/Post.vue'
 import Flex from './views/Flex.vue'
+import FizzBuzz from './components/fizz_buzz.vue'
 
 Vue.use(Router)
 
@@ -17,9 +17,9 @@ export default new Router({
       component: Home
     },
     {
-      path: '/users',
-      name: 'users',
-      component: Users
+      path: '/fizz_buzz',
+      name: 'fizz_buzz',
+      component: FizzBuzz
     },
     {
       path: '/users/:id',

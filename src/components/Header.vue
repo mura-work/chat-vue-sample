@@ -5,7 +5,7 @@
         <router-link to="/">Home</router-link>
       </li>
       <li>
-        <router-link to="/users">Users</router-link>
+        <router-link to="/fizz_buzz">fizz_buzz</router-link>
       </li>
       <li>
         <router-link to="/flex">Flex</router-link>
