@@ -1,5 +1,4 @@
 export function postComment(lists, targetValue) {
-  // 代入
   lists.push(targetValue)
   return lists
 }
