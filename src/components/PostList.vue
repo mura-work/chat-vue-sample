@@ -8,13 +8,11 @@
   >
     <v-card-title>{{post.name}}</v-card-title>
     <v-card-text>{{post.comment}}</v-card-text>
-    <v-card-actions class="flex justify-end">{{moment(post.created)}}</v-card-actions>
   </v-card>
   </div>
 </template>
 
 <script>
-import moment from 'moment';
 
 export default {
   name: 'post-list',
@@ -24,11 +22,7 @@ export default {
       default: () => {},
     },
   },
-  methods: {
-    moment: function (date) {
-      return moment(date.toDate()).format('YYYY/MM/DD HH:mm');
-    }
-  }
+  methods: {}
 }
 </script>
 

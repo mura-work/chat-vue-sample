@@ -1,9 +1,9 @@
 <template>
   <div class="post-form">
     <v-form class="form-contents">
-      <v-text-field ref="name" v-model="name" label="Name" required></v-text-field>
-      <v-text-field ref="comment" v-model="comment" label="Comment" required></v-text-field>
-      <v-btn depressed color="primary" elevation="3" @click="addComment">投稿</v-btn>
+      <v-text-field v-model="name" label="Name" required></v-text-field>
+      <v-text-field v-model="comment" label="Comment" required></v-text-field>
+      <v-btn @click="addComment()">投稿</v-btn>
     </v-form>
   </div>
 </template>
@@ -19,8 +19,8 @@ export default {
   }),
   methods: {
     addComment: function() {
-      const array = {'name': this.$refs.name.value, 'comment': this.$refs.comment.value}
-      this.$emit('post-comments', array)
+      const array = {'name': this.name, 'comment': this.comment}
+      this.$emit('post-comment', array)
       this.name = ''
       this.comment = ''
     }
