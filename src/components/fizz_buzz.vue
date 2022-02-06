@@ -1,10 +1,10 @@
 <template>
   <div>
-    <post-form @post-comment="postComment" />
+    <post-form :name.sync="name" @post-comment="postComment" />
     <ul>
       <li v-for="(error, i) in errorMessages" :key="i">{{error}}</li>
     </ul>
-    <post-list :posts="lists" />
+    <post-list :posts="lists" v-if="lists.length" />
   </div>
 </template>
 
@@ -24,6 +24,7 @@ export default {
     return {
       lists: [],
       errorMessages: [],
+      name: 'login User',
     }
   },
   methods: {
@@ -31,10 +32,18 @@ export default {
       fizzBuzz()
     },
     postComment(value) {
+      console.log(value)
       this.errorMessages = validPost(value)
       console.log(this.errorMessages)
       if (this.errorMessages.length > 0) return
       postComment(this.lists, value)
+    }
+  },
+  watch: {
+    name: {
+      handler() {
+        console.log(this.name)
+      }
     }
   },
   mounted() {
